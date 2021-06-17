@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="20dp">
+
+    <TextView
+        android:id="@+id/flightNameView"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="flightName" />
+
+    <TextView
+        android:id="@+id/departureTimeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="departureTime" />
+
+    <TextView
+        android:id="@+id/destinationTimeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="destinationTime" />
+
+    <TextView
+        android:id="@+id/departureCityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="departureCity" />
+
+    <TextView
+        android:id="@+id/destinationCityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="destinationCity" />
+
+</LinearLayout>
