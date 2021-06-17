@@ -9,7 +9,6 @@ public class Plane {
         this.type = type;
     }
 
-
     public int getPassengerCapacity(){
         return passengerCapacity;
     }
