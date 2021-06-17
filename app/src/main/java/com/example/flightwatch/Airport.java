@@ -12,6 +12,7 @@ public class Airport implements Beobachter{
     private int departingFlights;
     private int capacity;
     private Subjekt airports;
+    private AllFlights allFlights;
 
     public Airport(String name, String city,int capacity,int departingFlights,int incomingFlights, Subjekt airports,Weather weather ){
         this.name = name;
@@ -22,6 +23,7 @@ public class Airport implements Beobachter{
         this.airports = airports;
         airports.registriereBeobachter(this);
         this.weather = weather;
+        this.allFlights = new AllFlights(this.name);
     }
 
     @Override
@@ -29,5 +31,28 @@ public class Airport implements Beobachter{
         if (abflugsort.equals("all") || abflugsort.equals(this.name) || landungsort.equals(this.name)) {
             //Get New flights data
         }
+    }
+
+    public ArrayList<Flight> getFlights(){
+        return this.flights;
+    }
+
+    public void setFlights(){
+        flights = allFlights.getPendingFlights();
+    }
+    public Weather getWeather(){
+        return this.weather;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getCity(){
+        return this.city;
+    }
+
+    public String getStatus(){
+        return this.status;
     }
 }
