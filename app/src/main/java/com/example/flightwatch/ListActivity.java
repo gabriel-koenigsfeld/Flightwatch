@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,10 @@ public class ListActivity extends AppCompatActivity {
 
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
+
+    TextView cityNameView;
+    TextView weatherConditionView;
+    TextView weatherTemperatureView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +27,16 @@ public class ListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
 
+        cityNameView = findViewById(R.id.cityNameView);
+        weatherConditionView = findViewById(R.id.weatherConditionView);
+        weatherTemperatureView = findViewById(R.id.weatherTemperatureView);
+
         addEntries();
         setAdapter();
+
+        cityNameView.setText("Hamburg");
+        weatherConditionView.setText("Sonnig");
+        weatherTemperatureView.setText("25°C");
 
     }
 
@@ -36,6 +49,12 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
