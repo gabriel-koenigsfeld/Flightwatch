@@ -23,7 +23,7 @@ public class Airport implements Beobachter{
         this.airports = airports;
         airports.registriereBeobachter(this);
         this.weather = weather;
-        this.allFlights = new AllFlights(this.name);
+        this.allFlights = new AllFlights(this.name,airports);
     }
 
     @Override
