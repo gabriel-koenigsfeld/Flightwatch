@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>{
 
     private ArrayList<Flight> flightsAdapter;
@@ -23,6 +25,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         private TextView destinationTimeView;
         private TextView departureCityView;
         private TextView destinationCityView;
+        private TextView distanceView;
+        private TextView statusView;
 
         public RecyclerViewHolder(@NonNull final View itemView){
             super(itemView);
@@ -32,6 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             destinationTimeView = itemView.findViewById(R.id.destinationTimeView);
             departureCityView = itemView.findViewById(R.id.departureCityView);
             destinationCityView = itemView.findViewById(R.id.destinationCityView);
+            distanceView = itemView.findViewById(R.id.destinationCityView);
+            statusView = itemView.findViewById(R.id.destinationCityView);
 
         }
     }
@@ -48,6 +54,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
         String flightName = flightsAdapter.get(position).getFlightName();
         holder.flightNameView.setText(flightName);
+
+        String departureTime = flightsAdapter.get(position).getDepartureTime();
+        holder.departureTimeView.setText(departureTime);
+
+        String destinationTime = flightsAdapter.get(position).getDestinationTime();
+        holder.destinationTimeView.setText(destinationTime);
+
+        String departureCity = flightsAdapter.get(position).getDepartureCity();
+        holder.departureCityView.setText(departureCity);
+
+        String destinationCity = flightsAdapter.get(position).getDestinationCity();
+        holder.destinationCityView.setText(destinationCity);
+
+        int distance = flightsAdapter.get(position).getDistance();
+        holder.distanceView.setText(String.valueOf(distance));
+
+        String flightStatus = flightsAdapter.get(position).getDestinationCity();
+        holder.statusView.setText(flightStatus);
 
     }
 

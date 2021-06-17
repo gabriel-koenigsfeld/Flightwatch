@@ -22,6 +22,9 @@ public class ListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
 
+        addEntries();
+        setAdapter();
+
     }
 
     private void setAdapter(){
@@ -33,6 +36,8 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
-        flights.add(new Flight());
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
     }
 }

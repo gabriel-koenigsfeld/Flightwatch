@@ -21,23 +21,37 @@
 
     <TextView
         android:id="@+id/destinationTimeView"
-        android:layout_width="wrap_content"
+        android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="destinationTime" />
 
     <TextView
         android:id="@+id/departureCityView"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="departureCity" />
 
     <TextView
         android:id="@+id/destinationCityView"
-        android:layout_width="wrap_content"
+        android:layout_width="56dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="destinationCity" />
+
+    <TextView
+        android:id="@+id/distanceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="distance" />
+
+    <TextView
+        android:id="@+id/statusView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="status" />
 
 </LinearLayout>
