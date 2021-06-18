@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_marginHorizontal="20dp"
@@ -7,43 +10,69 @@
 
     <TextView
         android:id="@+id/flightNameView"
-        android:layout_width="97dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:baselineAligned="false"
         android:text="flightName"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
     <TextView
         android:id="@+id/departureTimeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:text="departureTime"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="@+id/departureCityView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/departureCityView"
+        app:layout_constraintTop_toTopOf="@+id/departureCityView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/destinationTimeView"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="21dp"
         android:layout_weight="1"
         android:text="destinationTime"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="@+id/destinationCityView"
+        app:layout_constraintEnd_toEndOf="@+id/departureTimeView"
+        app:layout_constraintStart_toStartOf="@+id/departureTimeView"
+        app:layout_constraintTop_toTopOf="@+id/destinationCityView" />
 
     <TextView
         android:id="@+id/departureCityView"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="departureCity"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/destinationCityView"
-        android:layout_width="56dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="destinationCity"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/departureCityView"
+        app:layout_constraintStart_toStartOf="@+id/departureCityView"
+        app:layout_constraintTop_toBottomOf="@+id/departureCityView" />
 
     <TextView
         android:id="@+id/distanceView"
@@ -51,14 +80,25 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="distance"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="@+id/destinationTimeView"
+        app:layout_constraintEnd_toEndOf="@+id/statusView"
+        app:layout_constraintStart_toStartOf="@+id/statusView"
+        app:layout_constraintTop_toTopOf="@+id/destinationTimeView" />
 
     <TextView
         android:id="@+id/statusView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_weight="1"
         android:text="status"
-        android:textColor="#4F5F77" />
+        android:textColor="#4F5F77"
+        app:layout_constraintBottom_toBottomOf="@+id/departureTimeView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toEndOf="@+id/departureTimeView"
+        app:layout_constraintTop_toTopOf="@+id/departureTimeView"
+        app:layout_constraintVertical_bias="0.0" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
