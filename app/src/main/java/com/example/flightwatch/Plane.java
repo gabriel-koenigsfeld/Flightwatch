@@ -9,12 +9,19 @@ public class Plane {
         this.type = type;
     }
 
-    public int getPassengerCapacity(){
+    public int getPassengerCapacity() {
         return passengerCapacity;
     }
 
-    public String getType(){
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    public String getType() {
         return type;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 }
