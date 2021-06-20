@@ -28,7 +28,7 @@ public class FlightGenerator {
 
 
     public Flight generateFlight(String airport) {
-        Flight flight = new Flight(new Plane(), new Schedule(), 1000, "regular");
+        Flight flight = new Flight(new Plane(), new Schedule(airport), 1000, "regular");
 
         new Thread(() -> {
             airports.benachrichtigeBeobachter("all", flight.getSchedule().getDestination());
@@ -38,9 +38,9 @@ public class FlightGenerator {
 
     public Flight[] getDummyFlights(String airport) {
         Flight[] flights = {
-                new Flight(new Plane(), new Schedule(), 200, "regular"),
-                new Flight(new Plane(), new Schedule(), 400, "regular"),
-                new Flight(new Plane(), new Schedule(), 600, "regular")
+                new Flight(new Plane(), new Schedule(airport), 200, "regular"),
+                new Flight(new Plane(), new Schedule(airport), 400, "regular"),
+                new Flight(new Plane(), new Schedule(airport), 600, "regular")
         };
         return flights;
     }

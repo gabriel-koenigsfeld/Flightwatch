@@ -18,6 +18,10 @@ public class Schedule {
         this.destination = destination;
         this.destinationTime = destinationTime;
     }
+    public Schedule(String departure){
+        this.departure = departure;
+        this.generateDestination();
+    }
 
     public Schedule() {
         this.generateSchedule();
@@ -59,6 +63,15 @@ public class Schedule {
         int randDep = new Random().nextInt(departures.length);
         this.setDeparture(departures[randDep]);
         int randDes = new Random().nextInt(destinations.length);
+        this.setDestination(destinations[randDes]);
+    }
+
+    public void generateDestination(){
+        int randDes = new Random().nextInt(destinations.length);
+
+        while(!this.departure.equals(destinations[randDes])){
+            randDes = new Random().nextInt(destinations.length);
+        }
         this.setDestination(destinations[randDes]);
     }
 }
