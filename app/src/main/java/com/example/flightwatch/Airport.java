@@ -29,7 +29,7 @@ public class Airport implements Beobachter{
     @Override
     public void aktualisieren(String abflugsort, String landungsort) {
         if (abflugsort.equals("all") || abflugsort.equals(this.name) || landungsort.equals(this.name)) {
-            //Get New flights data
+            this.setFlights();
         }
     }
 
@@ -54,5 +54,9 @@ public class Airport implements Beobachter{
 
     public String getStatus(){
         return this.status;
+    }
+
+    public void startGeneratingFlights(){
+        allFlights.getGeneratedFlight();
     }
 }
