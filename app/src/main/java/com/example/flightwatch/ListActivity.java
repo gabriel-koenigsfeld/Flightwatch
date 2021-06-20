@@ -12,10 +12,6 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
-    String selectedCity;
-
-    AllFlights allFlights;
-    ArrayList<Flight> allFlightsList;
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
 
@@ -28,10 +24,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        selectedCity = getIntent().getStringExtra("selectedCity");
-
         recyclerView = findViewById(R.id.recyclerView);
-        //PROBLEM allFlightsList = allFlights.getPendingFlights();
         flights = new ArrayList<Flight>();
 
         cityNameView = findViewById(R.id.cityNameView);
@@ -41,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
         addEntries();
         setAdapter();
 
-        cityNameView.setText(selectedCity);
+        cityNameView.setText("Hamburg");
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
@@ -56,19 +49,14 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
-
-        //for(Flight i : allFlightsList){
-        //    flights.add(i);
-        //}
-
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
     }
 }
