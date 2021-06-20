@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
+    String selectedCity;
+
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
 
@@ -24,6 +26,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        selectedCity = getIntent().getStringExtra("selectedCity");
+
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
 
@@ -34,7 +38,7 @@ public class ListActivity extends AppCompatActivity {
         addEntries();
         setAdapter();
 
-        cityNameView.setText("Hamburg");
+        cityNameView.setText(selectedCity);
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 

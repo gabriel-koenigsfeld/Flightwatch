@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         citiesList.add("Berlin");
         citiesList.add("Frankfurt");
 
+
+
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,citiesList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         citySpinner.setAdapter(spinnerAdapter);
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
+        intent.putExtra("selectedCity",selectedCity);
         startActivity(intent);
     }
+
 }
