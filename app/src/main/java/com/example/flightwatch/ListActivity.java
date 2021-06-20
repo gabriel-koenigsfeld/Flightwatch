@@ -49,14 +49,14 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
+        flights.add(new Flight(new Plane(), new Schedule(), 1000, "regular"));
     }
 }

@@ -14,7 +14,7 @@ public class Plane {
     }
 
     public Plane() {
-
+        this.generatePlane();
     }
 
     public int getPassengerCapacity() {
@@ -33,13 +33,9 @@ public class Plane {
         this.type = type;
     }
 
-    public Plane generatePlane(){
-        Plane randPlane = null;
+    public void generatePlane(){
         int randType = new Random().nextInt(planeType.length);
-
-        randPlane.setType(planeType[randType]);
-        randPlane.setPassengerCapacity(new Random().nextInt(300));
-
-        return randPlane;
+        this.setType(planeType[randType]);
+        this.setPassengerCapacity(new Random().nextInt(300));
     }
 }

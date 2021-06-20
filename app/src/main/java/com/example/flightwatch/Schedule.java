@@ -20,7 +20,7 @@ public class Schedule {
     }
 
     public Schedule() {
-
+        this.generateSchedule();
     }
 
     public String getDeparture() {
@@ -55,13 +55,10 @@ public class Schedule {
         this.destinationTime = destinationTime;
     }
 
-    public Schedule generateSchedule(){
-        Schedule randSchedule = null;
+    public void generateSchedule(){
         int randDep = new Random().nextInt(departures.length);
-        randSchedule.setDeparture(departures[randDep]);
+        this.setDeparture(departures[randDep]);
         int randDes = new Random().nextInt(destinations.length);
-        randSchedule.setDestination(destinations[randDes]);
-
-        return randSchedule;
+        this.setDestination(destinations[randDes]);
     }
 }
