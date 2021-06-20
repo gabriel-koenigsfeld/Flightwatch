@@ -69,7 +69,7 @@ public class Schedule {
     public void generateDestination(){
         int randDes = new Random().nextInt(destinations.length);
 
-        while(!this.departure.equals(destinations[randDes])){
+        while(this.departure.equals(destinations[randDes])){
             randDes = new Random().nextInt(destinations.length);
         }
         this.setDestination(destinations[randDes]);
