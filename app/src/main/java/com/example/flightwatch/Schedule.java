@@ -14,19 +14,35 @@ public class Schedule {
         this.destinationTime = destinationTime;
     }
 
-    public String getDeparture(){
+    public String getDeparture() {
         return departure;
     }
 
-    public String getDestination(){
-        return destination;
+    public void setDeparture(String departure) {
+        this.departure = departure;
     }
 
-    public String getDepartureTime(){
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public String getDestinationTime(){
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getDestinationTime() {
         return destinationTime;
+    }
+
+    public void setDestinationTime(String destinationTime) {
+        this.destinationTime = destinationTime;
     }
 }
