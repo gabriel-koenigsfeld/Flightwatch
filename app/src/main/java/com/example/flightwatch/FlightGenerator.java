@@ -5,17 +5,28 @@ import java.util.Random;
 public class FlightGenerator {
 
     private Flight flight;
-    private String[] departures = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
-    private String[] destinations = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
 
     public FlightGenerator(Flight flight){
         this.flight = flight;
     }
 
-    public Schedule generateSchedule(){
-        Schedule randSchedule = null;
-        int randDep = new Random().nextInt(departures.length);
-        randSchedule.setDeparture(departures[randDep]);
+    public FlightGenerator createFlight(){
+        Plane plane = new Plane();
+        plane.generatePlane();
+        Schedule sched = new Schedule();
+        sched.generateSchedule();
+
+        Flight flight = new Flight();
+        flight.generateFlight();
+        flight.setSchedule(sched);
+        flight.setPlane(plane);
+
+        FlightGenerator flightGenerator = new FlightGenerator(flight);
+
+        return flightGenerator;
+        
 
     }
+
+
 }

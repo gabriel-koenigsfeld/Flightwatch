@@ -1,11 +1,14 @@
 package com.example.flightwatch;
 
+import java.util.Random;
+
 public class Flight {
 
     private Plane plane;
     private Schedule schedule;
     private int distance;
-    private String flightStatus;
+    private String status;
+    private String[] flightStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
 
     //private enum Status
     //{SCHEDULED, DELAYED, DEPARTED, CANCELLED, ARRIVED};
@@ -14,15 +17,52 @@ public class Flight {
         this.plane = plane;
         this.schedule = schedule;
         this.distance = distance;
-        this.flightStatus = status;
+        this.status = status;
     }
 
+    public Flight() {
 
-    public int getDistance(){
+    }
+
+    public Plane getPlane() {
+        return plane;
+    }
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public int getDistance() {
         return distance;
     }
 
-    public String getFlightStatus() {
-        return flightStatus;
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
+
+    public String getFlightStatus() {
+        return status;
+    }
+
+    public void setFlightStatus(String status) {
+        this.status = status;
+    }
+
+    public Flight generateFlight(){
+        Flight flight = null;
+        flight.setDistance(new Random().nextInt(10000));
+        int randStatus = new Random().nextInt(flightStatus.length);
+        flight.setFlightStatus(flightStatus[randStatus]);
+
+        return flight;
+    }
+
 }
