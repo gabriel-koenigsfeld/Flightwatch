@@ -8,23 +8,34 @@
     android:background="#F7FDFF"
     tools:context=".ListActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tint="@color/blue_light"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="324dp"
-        android:layout_height="581dp"
+        android:layout_width="0dp"
+        android:layout_height="645dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityNameView"
-        app:layout_constraintVertical_bias="0.761" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/cityNameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CITY"
-        android:textColor="#142229"
+        android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,24 +51,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:text="CONDITION"
-        android:textColor="#142229"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/cityNameView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toEndOf="@+id/cityNameView"
-        app:layout_constraintTop_toTopOf="@+id/cityNameView"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintTop_toTopOf="@+id/cityNameView" />
 
     <TextView
         android:id="@+id/weatherTemperatureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TEMP"
-        android:textColor="#142229"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/weatherConditionView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/weatherConditionView"
         app:layout_constraintTop_toTopOf="@+id/weatherConditionView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

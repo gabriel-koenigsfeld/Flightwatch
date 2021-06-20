@@ -36,8 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             destinationTimeView = itemView.findViewById(R.id.destinationTimeView);
             departureCityView = itemView.findViewById(R.id.departureCityView);
             destinationCityView = itemView.findViewById(R.id.destinationCityView);
-            distanceView = itemView.findViewById(R.id.destinationCityView);
-            statusView = itemView.findViewById(R.id.destinationCityView);
+            distanceView = itemView.findViewById(R.id.distanceView);
+            statusView = itemView.findViewById(R.id.statusView);
 
         }
     }
@@ -68,9 +68,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         holder.destinationCityView.setText(destinationCity);
 
         int distance = flightsAdapter.get(position).getDistance();
-        holder.distanceView.setText(String.valueOf(distance));
+        holder.distanceView.setText(String.valueOf(distance) + " KM");
 
-        String flightStatus = flightsAdapter.get(position).getDestinationCity();
+        String flightStatus = flightsAdapter.get(position).getFlightStatus();
         holder.statusView.setText(flightStatus);
 
     }

@@ -48,5 +48,7 @@ public class Flight {
         return distance;
     }
 
-
+    public String getFlightStatus() {
+        return flightStatus;
+    }
 }

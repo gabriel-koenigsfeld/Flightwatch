@@ -49,14 +49,14 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","8:00","9:30","Hamburg","Köln",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
+        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
     }
 }
