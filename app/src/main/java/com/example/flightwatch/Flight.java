@@ -2,8 +2,8 @@ package com.example.flightwatch;
 
 public class Flight {
 
-    Plane plane;
-    Schedule schedule;
+    private Plane plane;
+    private Schedule schedule;
     private int distance;
     private String flightStatus;
 
