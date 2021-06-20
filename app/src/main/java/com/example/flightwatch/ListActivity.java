@@ -14,6 +14,8 @@ public class ListActivity extends AppCompatActivity {
 
     String selectedCity;
 
+    AllFlights allFlights;
+    ArrayList<Flight> allFlightsList;
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
 
@@ -29,6 +31,7 @@ public class ListActivity extends AppCompatActivity {
         selectedCity = getIntent().getStringExtra("selectedCity");
 
         recyclerView = findViewById(R.id.recyclerView);
+        //PROBLEM allFlightsList = allFlights.getPendingFlights();
         flights = new ArrayList<Flight>();
 
         cityNameView = findViewById(R.id.cityNameView);
@@ -53,6 +56,11 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void addEntries(){
+
+        //for(Flight i : allFlightsList){
+        //    flights.add(i);
+        //}
+
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
