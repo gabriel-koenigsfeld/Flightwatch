@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> citiesList = new ArrayList<>();
         citiesList.add("Wählen Sie Ihren Flughafen aus");
-        citiesList.add("Hamburg");
         citiesList.add("Köln");
-        citiesList.add("Berlin");
-        citiesList.add("Frankfurt");
-
-
+        citiesList.add("Hamburg");
+        citiesList.add("Bremen");
+        citiesList.add("Hannover");
+        citiesList.add("Leipzig");
+        citiesList.add("München");
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,citiesList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -61,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openListActivity();
+                if(selectedCity != null){
+                    openListActivity();
+                }
             }
         });
 
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
         intent.putExtra("selectedCity",selectedCity);
+        selectedCity = null;
         startActivity(intent);
     }
 
