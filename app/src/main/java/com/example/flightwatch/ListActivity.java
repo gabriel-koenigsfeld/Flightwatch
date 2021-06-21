@@ -35,7 +35,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
-
+        weather = new Weather();
 
         cityNameView = findViewById(R.id.cityNameView);
         weatherConditionView = findViewById(R.id.weatherConditionView);
@@ -71,8 +71,8 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
         airports.registriereBeobachter(this);
 
         setAdapter();
-        weatherConditionView.setText("Sonnig");
-        weatherTemperatureView.setText("25°C");
+        weatherConditionView.setText(weather.getCondition());
+        weatherTemperatureView.setText(String.valueOf(weather.getTemperature())+"°C");
 
     }
 
