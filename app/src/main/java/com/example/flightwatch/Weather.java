@@ -3,7 +3,7 @@ package com.example.flightwatch;
 public class Weather {
 
     private String condition;
-    private String[] conditions = new String[]{"", ""};
+    private String[] conditions = new String[]{"Sonnig", "Regen", "Gewitter"};
     private int temperature;
 
     public Weather(String condition, int temperature){

@@ -13,10 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:shadowColor="#32000000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="1"
         android:text="flightName"
         android:textAlignment="textStart"
         android:textColor="@color/font_dark"
@@ -30,8 +26,39 @@
         app:layout_constraintVertical_bias="0.214" />
 
     <TextView
+        android:id="@+id/departureCityView"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="departureCity"
+        android:textAlignment="textStart"
+        android:textColor="@color/font_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266" />
+
+    <TextView
+        android:id="@+id/statusView"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:text="status"
+        android:textAlignment="textStart"
+        android:textColor="@color/font_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/departureTimeView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/departureTimeView"
+        app:layout_constraintTop_toTopOf="@+id/departureTimeView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/distanceView"
-        android:layout_width="65dp"
+        android:layout_width="70dp"
         android:layout_height="20dp"
         android:layout_weight="1"
         android:text="distance"
@@ -55,7 +82,7 @@
         android:textColor="@color/font_normal"
         app:layout_constraintBottom_toBottomOf="@+id/departureCityView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toEndOf="@+id/departureCityView"
         app:layout_constraintTop_toTopOf="@+id/departureCityView"
         app:layout_constraintVertical_bias="0.0" />
@@ -74,37 +101,6 @@
         app:layout_constraintStart_toStartOf="@+id/departureTimeView"
         app:layout_constraintTop_toTopOf="@+id/destinationCityView"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/statusView"
-        android:layout_width="65dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_weight="1"
-        android:text="status"
-        android:textAlignment="textStart"
-        android:textColor="@color/font_normal"
-        app:layout_constraintBottom_toBottomOf="@+id/departureTimeView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/departureTimeView"
-        app:layout_constraintTop_toTopOf="@+id/departureTimeView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/departureCityView"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:layout_weight="1"
-        android:text="departureCity"
-        android:textAlignment="textStart"
-        android:textColor="@color/font_normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/destinationCityView"

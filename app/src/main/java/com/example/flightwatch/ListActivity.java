@@ -20,6 +20,9 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
     TextView cityNameView;
     TextView weatherConditionView;
     TextView weatherTemperatureView;
+
+    Weather weather;
+
     Airport airport;
     Airports airports;
 
@@ -40,7 +43,29 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
         Bundle extras = getIntent().getExtras();
 
-        cityNameView.setText(extras.getString("selectedCity"));
+        switch(extras.getString("selectedCity")){
+            case "KLN":
+                cityNameView.setText("Köln");
+                break;
+            case "HAM":
+                cityNameView.setText("Hamburg");
+                break;
+            case "BRE":
+                cityNameView.setText("Bremen");
+                break;
+            case "HAJ":
+                cityNameView.setText("Hannover");
+                break;
+            case "LEJ":
+                cityNameView.setText("Leipzig");
+                break;
+            case "MUC":
+                cityNameView.setText("München");
+                break;
+            default:
+                cityNameView.setText("Stadt");
+        }
+
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"),airports);
         airports.registriereBeobachter(this);

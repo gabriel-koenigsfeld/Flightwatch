@@ -22,8 +22,9 @@ public class Schedule {
         this.destinationTime = destinationTime;
     }
     public Schedule(String departure){
-        this.departure = departure;
-        this.generateDestination();
+
+        this.generateRoute(departure);
+        this.generateSchedule();
     }
 
     public Schedule() {
@@ -63,18 +64,57 @@ public class Schedule {
     }
 
     public void generateSchedule(){
-        int randDep = new Random().nextInt(departures.length);
-        this.setDeparture(departures[randDep]);
-        int randDes = new Random().nextInt(destinations.length);
-        this.setDestination(destinations[randDes]);
+        int departureRandHour = new Random().nextInt(23);
+        int departureRandMinute = new Random().nextInt(59);
+        int destinationRandHour = (departureRandHour + new Random().nextInt(2)+1) % 24;
+        int destinationRandMinute = (departureRandMinute + new Random().nextInt(59)) % 60;
+
+        String departureHourString;
+        String departureMinuteString;
+        String destinationHourString;
+        String destinationMinuteString;
+
+        if( departureRandHour < 10){
+            departureHourString = "0" + departureRandHour;
+        }else{
+            departureHourString = String.valueOf(departureRandHour);
+        }
+        if( departureRandMinute < 10){
+            departureMinuteString = "0" + departureRandMinute;
+        }else{
+            departureMinuteString = String.valueOf(departureRandMinute);
+        }
+
+        if( destinationRandHour < 10){
+            destinationHourString = "0" + destinationRandHour;
+        }else{
+            destinationHourString = String.valueOf(destinationRandHour);
+        }
+        if( destinationRandMinute < 10){
+            destinationMinuteString = "0" + destinationRandMinute;
+        }else{
+            destinationMinuteString = String.valueOf(destinationRandMinute);
+        }
+
+        this.setDepartureTime(departureHourString + ":" + departureMinuteString);
+        this.setDestinationTime(destinationHourString + ":" + destinationMinuteString);
+
     }
 
-    public void generateDestination(){
+    public void generateRoute(String departure){
         int randDes = new Random().nextInt(destinations.length);
 
-        while(this.departure.equals(destinations[randDes])){
+        while(departure.equals(destinations[randDes])){
             randDes = new Random().nextInt(destinations.length);
         }
-        this.setDestination(destinations[randDes]);
+
+        if(new Random().nextBoolean()){
+            this.departure = departure;
+            this.setDestination(destinations[randDes]);
+        }else{
+            this.departure = destinations[randDes];
+            this.setDestination(departure);
+        }
+
     }
 }

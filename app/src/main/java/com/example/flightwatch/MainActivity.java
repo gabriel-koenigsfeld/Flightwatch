@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> citiesList = new ArrayList<>();
         citiesList.add("Wählen Sie Ihren Flughafen aus");
-        citiesList.add("Köln");
-        citiesList.add("Hamburg");
-        citiesList.add("Bremen");
-        citiesList.add("Hannover");
-        citiesList.add("Leipzig");
-        citiesList.add("München");
+        citiesList.add("KLN");
+        citiesList.add("HAM");
+        citiesList.add("BRE");
+        citiesList.add("HAJ");
+        citiesList.add("LEJ");
+        citiesList.add("MUC");
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,citiesList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
