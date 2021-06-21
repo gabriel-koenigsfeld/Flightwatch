@@ -52,19 +52,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 
-        String flightName = flightsAdapter.get(position).getFlightName();
+        String flightName = flightsAdapter.get(position).getPlane().getType();
         holder.flightNameView.setText(flightName);
 
-        String departureTime = flightsAdapter.get(position).getDepartureTime();
+        String departureTime = flightsAdapter.get(position).getSchedule().getDepartureTime();
         holder.departureTimeView.setText(departureTime);
 
-        String destinationTime = flightsAdapter.get(position).getDestinationTime();
+        String destinationTime = flightsAdapter.get(position).getSchedule().getDestinationTime();
         holder.destinationTimeView.setText(destinationTime);
 
-        String departureCity = flightsAdapter.get(position).getDepartureCity();
+        String departureCity = flightsAdapter.get(position).getSchedule().getDeparture();
         holder.departureCityView.setText(departureCity);
 
-        String destinationCity = flightsAdapter.get(position).getDestinationCity();
+        String destinationCity = flightsAdapter.get(position).getSchedule().getDestination();
         holder.destinationCityView.setText(destinationCity);
 
         int distance = flightsAdapter.get(position).getDistance();

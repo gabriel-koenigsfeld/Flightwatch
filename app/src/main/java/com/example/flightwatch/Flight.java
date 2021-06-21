@@ -1,54 +1,65 @@
 package com.example.flightwatch;
 
+import java.util.Random;
+
 public class Flight {
 
-    private String flightName;
-    private String departureTime;
-    private String destinationTime;
-    private String departureCity;
-    private String destinationCity;
-
+    private Plane plane;
+    private Schedule schedule;
     private int distance;
-    private String flightStatus;
+    private String status;
+    private String[] everyStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
 
     //private enum Status
     //{SCHEDULED, DELAYED, DEPARTED, CANCELLED, ARRIVED};
 
-    public Flight(String flightName, String departureTime, String destinationTime, String departureCity, String destinationCity, int distance, String status){
-        this.flightName = flightName;
-        this.departureTime = departureTime;
-        this.destinationTime = destinationTime;
-        this.departureCity = departureCity;
-        this.destinationCity = destinationCity;
+    public Flight(Plane plane, Schedule schedule, int distance, String status){
+        this.plane = plane;
+        this.schedule = schedule;
         this.distance = distance;
-        this.flightStatus = status;
+        this.status = status;
     }
 
-    public String getFlightName() {
-        return flightName;
+    public Flight() {
+            this.generateFlight();
     }
 
-    public String getDepartureTime() {
-        return departureTime;
+    public Plane getPlane() {
+        return plane;
     }
 
-    public String getDestinationTime() {
-        return destinationTime;
+    public void setPlane(Plane plane) {
+        this.plane = plane;
     }
 
-    public String getDepartureCity() {
-        return departureCity;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public String getDestinationCity() {
-        return destinationCity;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
-    public int getDistance(){
+    public int getDistance() {
         return distance;
     }
 
-    public String getFlightStatus() {
-        return flightStatus;
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
+
+    public String getFlightStatus() {
+        return status;
+    }
+
+    public void setFlightStatus(String status) {
+        this.status = status;
+    }
+
+    public void generateFlight(){
+        this.setDistance(new Random().nextInt(10000));
+        int randStatus = new Random().nextInt(everyStatus.length);
+        this.setFlightStatus(everyStatus[randStatus]);
+    }
+
 }
