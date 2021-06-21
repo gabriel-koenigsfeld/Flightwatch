@@ -29,10 +29,7 @@ public class FlightGenerator {
 
     public Flight generateFlight(String airport) {
         Flight flight = new Flight(new Plane(), new Schedule(airport), 1000, "regular");
-
-        new Thread(() -> {
-            airports.benachrichtigeBeobachter("all", flight.getSchedule().getDestination());
-        }).start();
+        airports.benachrichtigeBeobachter("all", flight.getSchedule().getDestination());
         return flight;
     }
 

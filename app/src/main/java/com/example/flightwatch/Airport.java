@@ -3,7 +3,7 @@ package com.example.flightwatch;
 import java.util.ArrayList;
 
 public class Airport implements Beobachter{
-    private ArrayList flights;
+    private ArrayList<Flight> flights;
     private Weather weather;
     private String name;
     private String city;
@@ -21,9 +21,17 @@ public class Airport implements Beobachter{
         this.departingFlights = departingFlights;
         this.incomingFlights = incomingFlights;
         this.airports = airports;
+        this.flights = new ArrayList<Flight>();
         airports.registriereBeobachter(this);
         this.weather = weather;
         this.allFlights = new AllFlights(this.name,airports);
+    }
+
+    public Airport(String name,Subjekt airports){
+        this.name = name;
+        this.airports = airports;
+        this.allFlights = new AllFlights(this.name,airports);
+        this.setFlights();
     }
 
     @Override
