@@ -56,12 +56,10 @@ public class Flight {
         this.status = status;
     }
 
-    public Flight generateFlight(){
-        Flight flight = null;
+    public Flight generateFlight(Flight flight){
         flight.setDistance(new Random().nextInt(10000));
         int randStatus = new Random().nextInt(flightStatus.length);
         flight.setFlightStatus(flightStatus[randStatus]);
-
         return flight;
     }
 
