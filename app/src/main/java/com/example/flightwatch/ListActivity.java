@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity implements Beobachter{
+public class ListActivity extends AppCompatActivity implements Observer {
 
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
@@ -68,7 +66,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"),airports);
-        airports.registriereBeobachter(this);
+        airports.registerObserver(this);
 
         setAdapter();
         weatherConditionView.setText(weather.getCondition());
@@ -85,7 +83,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
     }
 
-    public void aktualisieren(String abflugsort, String landungsort) {
+    public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
     }
 }

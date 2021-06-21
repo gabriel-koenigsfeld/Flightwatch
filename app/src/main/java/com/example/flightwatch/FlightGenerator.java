@@ -2,26 +2,19 @@
 package com.example.flightwatch;
 
 
-import android.util.Log;
-
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class FlightGenerator {
-    private Subjekt airports;
+    private Subject airports;
     private static FlightGenerator flightGenerator;
     private String[] everyStatus = new String[]{"Scheduled", "Delayed", "Departed", "Cancelled", "Arrived"};
 
 
-    private FlightGenerator(Subjekt airports) {
+    private FlightGenerator(Subject airports) {
         this.airports = airports;
     }
 
-    public static FlightGenerator getInstance(Subjekt airports) {
+    public static FlightGenerator getInstance(Subject airports) {
         if (flightGenerator == null) {
             flightGenerator = new FlightGenerator(airports);
         }
@@ -31,7 +24,7 @@ public class FlightGenerator {
 
     public Flight generateFlight(String airport) {
         Flight flight = new Flight(new Plane(), new Schedule(airport), new Random().nextInt(517)+95, everyStatus[new Random().nextInt(everyStatus.length)]);
-        airports.benachrichtigeBeobachter("all", flight.getSchedule().getDestination());
+        airports.notifyObserver("all", flight.getSchedule().getDestination());
         return flight;
     }
 
