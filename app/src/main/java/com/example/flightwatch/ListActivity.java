@@ -35,19 +35,13 @@ public class ListActivity extends AppCompatActivity {
         weatherConditionView = findViewById(R.id.weatherConditionView);
         weatherTemperatureView = findViewById(R.id.weatherTemperatureView);
 
-<<<<<<< Updated upstream
-        addEntries();
-        setAdapter();
-
         cityNameView.setText("Hamburg");
-=======
         Bundle extras = getIntent().getExtras();
 
         cityNameView.setText(extras.getString("selectedCity"));
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"),airports);
         setAdapter();
->>>>>>> Stashed changes
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
@@ -61,18 +55,4 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
-<<<<<<< Updated upstream
-    private void addEntries(){
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-        flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
-    }
-=======
->>>>>>> Stashed changes
 }
