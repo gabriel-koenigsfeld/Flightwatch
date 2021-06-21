@@ -23,6 +23,8 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
     Airport airport;
     Airports airports;
 
+    RecyclerAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"),airports);
         airports.registriereBeobachter(this);
+
         setAdapter();
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
@@ -50,7 +53,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
 
     private void setAdapter(){
-        RecyclerAdapter adapter = new RecyclerAdapter(airport.getFlights());
+        adapter = new RecyclerAdapter(airport.getFlights());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -58,6 +61,6 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
     }
 
     public void aktualisieren(String abflugsort, String landungsort) {
-        setAdapter();
+        adapter.notifyDataSetChanged();
     }
 }
