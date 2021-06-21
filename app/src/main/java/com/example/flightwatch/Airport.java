@@ -2,7 +2,7 @@ package com.example.flightwatch;
 
 import java.util.ArrayList;
 
-public class Airport implements Beobachter{
+public class Airport implements Observer {
     private ArrayList<Flight> flights;
     private Weather weather;
     private String name;
@@ -11,10 +11,10 @@ public class Airport implements Beobachter{
     private int incomingFlights;
     private int departingFlights;
     private int capacity;
-    private Subjekt airports;
+    private Subject airports;
     private AllFlights allFlights;
 
-    public Airport(String name, String city,int capacity,int departingFlights,int incomingFlights, Subjekt airports,Weather weather ){
+    public Airport(String name, String city, int capacity, int departingFlights, int incomingFlights, Subject airports, Weather weather ){
         this.name = name;
         this.city = city;
         this.capacity = capacity;
@@ -22,12 +22,12 @@ public class Airport implements Beobachter{
         this.incomingFlights = incomingFlights;
         this.airports = airports;
         this.flights = new ArrayList<Flight>();
-        airports.registriereBeobachter(this);
+        airports.registerObserver(this);
         this.weather = weather;
         this.allFlights = new AllFlights(this.name,airports);
     }
 
-    public Airport(String name,Subjekt airports){
+    public Airport(String name, Subject airports){
         this.name = name;
         this.airports = airports;
         this.allFlights = new AllFlights(this.name,airports);
@@ -35,8 +35,8 @@ public class Airport implements Beobachter{
     }
 
     @Override
-    public void aktualisieren(String abflugsort, String landungsort) {
-        if (abflugsort.equals("all") || abflugsort.equals(this.name) || landungsort.equals(this.name)) {
+    public void refresh(String departure, String destination) {
+        if (departure.equals("all") || departure.equals(this.name) || destination.equals(this.name)) {
             this.setFlights();
         }
     }

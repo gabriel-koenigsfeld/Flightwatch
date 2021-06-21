@@ -1,33 +1,31 @@
 package com.example.flightwatch;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
-public class Airports implements Subjekt {
-    private ArrayList<Beobachter> beobachter;
+public class Airports implements Subject {
+    private ArrayList<Observer> observer;
 
     public Airports(){
-        beobachter = new ArrayList<Beobachter>();
+        observer = new ArrayList<Observer>();
     }
     @Override
-    public void registriereBeobachter(Beobachter b) {
-        beobachter.add(b);
+    public void registerObserver(Observer b) {
+        observer.add(b);
     }
 
     @Override
-    public void entferneBeobachter(Beobachter b) {
-        int i = beobachter.indexOf(b);
+    public void removeObserver(Observer b) {
+        int i = observer.indexOf(b);
         if(i >= 0){
-            beobachter.remove(i);
+            observer.remove(i);
         }
     }
 
     @Override
-    public void benachrichtigeBeobachter(String landungsort,String abflugort) {
-        for (int i =  0; i < beobachter.size(); i++){
-            Beobachter b = (Beobachter)beobachter.get(i);
-            b.aktualisieren(landungsort,abflugort);
+    public void notifyObserver(String landungsort, String abflugort) {
+        for (int i = 0; i < observer.size(); i++){
+            Observer b = (Observer) observer.get(i);
+            b.refresh(landungsort,abflugort);
         }
     }
 }
