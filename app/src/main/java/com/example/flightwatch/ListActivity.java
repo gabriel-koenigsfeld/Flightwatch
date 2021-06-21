@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -21,6 +22,10 @@ public class ListActivity extends AppCompatActivity {
     TextView weatherTemperatureView;
     Airport airport;
     Airports airports;
+
+    Handler handler = new Handler();
+    Runnable runnable;
+    int refreshDelay = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,21 @@ public class ListActivity extends AppCompatActivity {
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
+    }
+
+    @Override
+    protected void onResume() {
+        handler.postDelayed(runnable = new Runnable(){
+            public void run(){
+                handler.postDelayed(runnable, refreshDelay);
+                //Code der jede Sekunde ausgeführt wird
+
+                //Refresh Flight List
+                setAdapter();
+
+            }
+        }, refreshDelay);
+        super.onResume();
     }
 
     private void setAdapter(){
