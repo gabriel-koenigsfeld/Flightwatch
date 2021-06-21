@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity implements Beobachter{
 
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
@@ -22,10 +22,6 @@ public class ListActivity extends AppCompatActivity {
     TextView weatherTemperatureView;
     Airport airport;
     Airports airports;
-
-    Handler handler = new Handler();
-    Runnable runnable;
-    int refreshDelay = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,32 +36,18 @@ public class ListActivity extends AppCompatActivity {
         weatherConditionView = findViewById(R.id.weatherConditionView);
         weatherTemperatureView = findViewById(R.id.weatherTemperatureView);
 
-        cityNameView.setText("Hamburg");
         Bundle extras = getIntent().getExtras();
 
         cityNameView.setText(extras.getString("selectedCity"));
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"),airports);
+        airports.registriereBeobachter(this);
         setAdapter();
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
     }
 
-    @Override
-    protected void onResume() {
-        handler.postDelayed(runnable = new Runnable(){
-            public void run(){
-                handler.postDelayed(runnable, refreshDelay);
-                //Code der jede Sekunde ausgeführt wird
-
-                //Refresh Flight List
-                setAdapter();
-
-            }
-        }, refreshDelay);
-        super.onResume();
-    }
 
     private void setAdapter(){
         RecyclerAdapter adapter = new RecyclerAdapter(airport.getFlights());
@@ -75,4 +57,7 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
+    public void aktualisieren(String abflugsort, String landungsort) {
+        setAdapter();
+    }
 }

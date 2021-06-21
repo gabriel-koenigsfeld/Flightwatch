@@ -33,11 +33,11 @@ public class AllFlights {
     }
 
     public void getDummyData(){
-        Log.e("Dummy","angekommen");
         Flight[] flights = flightGenerator.getDummyFlights(this.airport);
         for (Flight flight: flights) {
             pendingFlights.add(flight);
         }
+        this.getGeneratedFlight();
     }
 
     public void restartGenerator(){
