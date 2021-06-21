@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
         intent.putExtra("selectedCity",selectedCity);
+
         selectedCity = null;
         startActivity(intent);
     }
