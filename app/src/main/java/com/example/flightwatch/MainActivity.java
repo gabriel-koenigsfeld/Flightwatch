@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button continueButton;
     private Spinner citySpinner;
     private String selectedCity;
+    private Airports airports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //DROPDOWN MENÜ
         citySpinner = findViewById(R.id.spinner);
-
+        airports = new Airports();
         ArrayList<String> citiesList = new ArrayList<>();
         citiesList.add("Wählen Sie Ihren Flughafen aus");
         citiesList.add("Köln");
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
         intent.putExtra("selectedCity",selectedCity);
-
+        intent.putExtra("airports",airports);
         selectedCity = null;
         startActivity(intent);
     }

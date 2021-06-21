@@ -41,8 +41,9 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
         Bundle extras = getIntent().getExtras();
 
         cityNameView.setText(extras.getString("selectedCity"));
-        airports = new Airports();
+        airports = (Airports) getIntent().getParcelableExtra("airports");
         airport = new Airport(extras.getString("selectedCity"),airports);
+
         airports.registriereBeobachter(this);
 
         setAdapter();
@@ -61,6 +62,14 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
     }
 
     public void aktualisieren(String abflugsort, String landungsort) {
+        Log.e("bug","new Data");
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        airports.entferneBeobachter(this);
+        airport = null;
+        super.onDestroy();
     }
 }

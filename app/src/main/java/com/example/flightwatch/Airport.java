@@ -31,6 +31,7 @@ public class Airport implements Beobachter{
         this.name = name;
         this.airports = airports;
         this.allFlights = new AllFlights(this.name,airports);
+        airports.registriereBeobachter(this);
         this.setFlights();
     }
 
