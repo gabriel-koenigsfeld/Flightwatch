@@ -8,7 +8,7 @@ public class Flight {
     private Schedule schedule;
     private int distance;
     private String status;
-    private String[] flightStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
+    private String[] everyStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
 
     //private enum Status
     //{SCHEDULED, DELAYED, DEPARTED, CANCELLED, ARRIVED};
@@ -21,7 +21,7 @@ public class Flight {
     }
 
     public Flight() {
-
+            this.generateFlight();
     }
 
     public Plane getPlane() {
@@ -56,11 +56,10 @@ public class Flight {
         this.status = status;
     }
 
-    public Flight generateFlight(Flight flight){
-        flight.setDistance(new Random().nextInt(10000));
-        int randStatus = new Random().nextInt(flightStatus.length);
-        flight.setFlightStatus(flightStatus[randStatus]);
-        return flight;
+    public void generateFlight(){
+        this.setDistance(new Random().nextInt(10000));
+        int randStatus = new Random().nextInt(everyStatus.length);
+        this.setFlightStatus(everyStatus[randStatus]);
     }
 
 }

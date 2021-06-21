@@ -6,7 +6,7 @@ public class Plane {
     private int passengerCapacity;
     private String type;
 
-    private String[] planeType = new String[]{"Airbus", "Boeing"};
+    private String[] planeTypes = new String[]{"Airbus", "Boeing"};
 
     public Plane(int passengerCapacity, String type){
         this.passengerCapacity = passengerCapacity;
@@ -34,8 +34,8 @@ public class Plane {
     }
 
     public void generatePlane(){
-        int randType = new Random().nextInt(planeType.length);
-        this.setType(planeType[randType]);
+        int randType = new Random().nextInt(planeTypes.length);
+        this.setType(planeTypes[randType]);
         this.setPassengerCapacity(new Random().nextInt(300));
     }
 }
