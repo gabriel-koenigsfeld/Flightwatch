@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class ListActivity extends AppCompatActivity {
     TextView cityNameView;
     TextView weatherConditionView;
     TextView weatherTemperatureView;
+    Airport airport;
+    Airports airports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,27 +30,38 @@ public class ListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
 
+
         cityNameView = findViewById(R.id.cityNameView);
         weatherConditionView = findViewById(R.id.weatherConditionView);
         weatherTemperatureView = findViewById(R.id.weatherTemperatureView);
 
+<<<<<<< Updated upstream
         addEntries();
         setAdapter();
 
         cityNameView.setText("Hamburg");
+=======
+        Bundle extras = getIntent().getExtras();
+
+        cityNameView.setText(extras.getString("selectedCity"));
+        airports = new Airports();
+        airport = new Airport(extras.getString("selectedCity"),airports);
+        setAdapter();
+>>>>>>> Stashed changes
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
     }
 
     private void setAdapter(){
-        RecyclerAdapter adapter = new RecyclerAdapter(flights);
+        RecyclerAdapter adapter = new RecyclerAdapter(airport.getFlights());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
     }
 
+<<<<<<< Updated upstream
     private void addEntries(){
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
@@ -59,4 +73,6 @@ public class ListActivity extends AppCompatActivity {
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
         flights.add(new Flight("FL-21","08:00","09:30","HAM","KLN",12, "SCHEDULED"));
     }
+=======
+>>>>>>> Stashed changes
 }

@@ -3,10 +3,10 @@ package com.example.flightwatch;
 import java.util.ArrayList;
 
 public class Airports implements Subjekt {
-    private ArrayList beobachter;
+    private ArrayList<Beobachter> beobachter;
 
     public Airports(){
-        beobachter = new ArrayList();
+        beobachter = new ArrayList<Beobachter>();
     }
     @Override
     public void registriereBeobachter(Beobachter b) {
