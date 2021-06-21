@@ -9,8 +9,11 @@ public class Schedule {
     private String destination;
     private String destinationTime;
 
-    private String[] departures = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
-    private String[] destinations = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
+    private String[] departures = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
+    private String[] destinations = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
+
+    //private String[] departures = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
+    //private String[] destinations = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
 
     public Schedule(String departure, String departureTime, String destination, String destinationTime){
         this.departure = departure;

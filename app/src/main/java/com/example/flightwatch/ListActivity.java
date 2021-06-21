@@ -34,7 +34,9 @@ public class ListActivity extends AppCompatActivity {
         addEntries();
         setAdapter();
 
-        cityNameView.setText("Hamburg");
+        Bundle extras = getIntent().getExtras();
+
+        cityNameView.setText(extras.getString("selectedCity"));
         weatherConditionView.setText("Sonnig");
         weatherTemperatureView.setText("25°C");
 
