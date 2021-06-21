@@ -1,5 +1,7 @@
 package com.example.flightwatch;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Airports implements Subjekt {
@@ -11,6 +13,14 @@ public class Airports implements Subjekt {
     @Override
     public void registriereBeobachter(Beobachter b) {
         beobachter.add(b);
+    }
+
+    @Override
+    public void entferneBeobachter(Beobachter b) {
+        int i = beobachter.indexOf(b);
+        if(i >= 0){
+            beobachter.remove(i);
+        }
     }
 
     @Override
