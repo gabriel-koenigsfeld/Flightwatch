@@ -22,12 +22,14 @@ public class FlightGenerator {
     }
 
 
+    //Generating a random flight object
     public Flight generateFlight(String airport) {
         Flight flight = new Flight(new Plane(), new Schedule(airport), new Random().nextInt(517)+95, everyStatus[new Random().nextInt(everyStatus.length)]);
         airports.notifyObserver("all", flight.getSchedule().getDestination());
         return flight;
     }
 
+    //Generating three random flight objects so the list is not empty when started
     public Flight[] getDummyFlights(String airport) {
         Flight[] flights = {
                 new Flight(new Plane(), new Schedule(airport), new Random().nextInt(517)+95, everyStatus[new Random().nextInt(everyStatus.length)]),
