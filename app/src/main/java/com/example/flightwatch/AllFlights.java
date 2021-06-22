@@ -26,7 +26,6 @@ public class AllFlights {
 
     public void getGeneratedFlight(){
         pendingFlights.add(flightGenerator.generateFlight(airport));
-        Log.e("angekommen",""+pendingFlights.size());
         this.restartGenerator();
     }
 

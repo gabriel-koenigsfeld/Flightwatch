@@ -31,7 +31,7 @@ public class Airport implements Observer {
         this.name = name;
         this.airports = airports;
         this.allFlights = new AllFlights(this.name,airports);
-        airports.registriereBeobachter(this);
+        airports.registerObserver(this);
         this.setFlights();
     }
 

@@ -44,8 +44,8 @@ public class ListActivity extends AppCompatActivity implements Observer {
         cityNameView.setText(extras.getString("selectedCity"));
         airports = (Airports) getIntent().getParcelableExtra("airports");
         airport = new Airport(extras.getString("selectedCity"),airports);
+        airports.registerObserver(this);
 
-        airports.registriereBeobachter(this);
         switch(extras.getString("selectedCity")){
             case "KLN":
                 cityNameView.setText("Köln");
@@ -69,8 +69,6 @@ public class ListActivity extends AppCompatActivity implements Observer {
                 cityNameView.setText("Stadt");
         }
 
-        airports.registerObserver(this);
-
         setAdapter();
         weatherConditionView.setText(weather.getCondition());
         weatherTemperatureView.setText(String.valueOf(weather.getTemperature())+"°C");
@@ -92,7 +90,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
     @Override
     protected void onDestroy() {
-        airports.entferneBeobachter(this);
+        airports.removeObserver(this);
         airport = null;
         super.onDestroy();
     }

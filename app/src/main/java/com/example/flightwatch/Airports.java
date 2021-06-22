@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class Airports implements Subjekt, Parcelable {
+public class Airports implements Subject, Parcelable {
     private ArrayList<Observer> observer;
 
     public Airports(){
@@ -14,7 +14,7 @@ public class Airports implements Subjekt, Parcelable {
     }
 
     protected Airports(Parcel in) {
-        beobachter = new ArrayList<Beobachter>();
+        observer = new ArrayList<Observer>();
     }
 
     public static final Creator<Airports> CREATOR = new Creator<Airports>() {
@@ -43,7 +43,7 @@ public class Airports implements Subjekt, Parcelable {
     }
 
     public int beobachterSize(){
-        return beobachter.size();
+        return observer.size();
     }
 
     @Override
