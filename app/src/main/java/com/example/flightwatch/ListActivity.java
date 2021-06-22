@@ -92,4 +92,11 @@ public class ListActivity extends AppCompatActivity implements Observer {
     public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
     }
+
+    @Override
+    protected void onDestroy() {
+        airports.removeObserver(this);
+        airport = null;
+        super.onDestroy();
+    }
 }
