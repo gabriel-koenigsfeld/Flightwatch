@@ -75,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
     //Button transition to ListActivity
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
+        //transfer selectedCity to ListActivity
         intent.putExtra("selectedCity",selectedCity);
+        //transfer airports (concrete subject) to ListActivity
         intent.putExtra("airports",airports);
         selectedCity = null;
         startActivity(intent);

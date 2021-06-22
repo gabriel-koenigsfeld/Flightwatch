@@ -31,6 +31,7 @@ public class Airport implements Observer {
         this.name = name;
         this.airports = airports;
         this.allFlights = new AllFlights(this.name,airports);
+        //register for observer
         airports.registerObserver(this);
         this.setFlights();
     }
@@ -64,8 +65,5 @@ public class Airport implements Observer {
     public String getStatus(){
         return this.status;
     }
-
-    public void startGeneratingFlights(){
-        allFlights.getGeneratedFlight();
-    }
+    
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.util.Log;
 
 import java.util.ArrayList;
-
+//Parcelable interface for transfering object between activities
 public class Airports implements Subject, Parcelable {
     private ArrayList<Observer> observer;
 
