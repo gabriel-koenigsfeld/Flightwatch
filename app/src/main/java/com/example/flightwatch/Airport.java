@@ -30,6 +30,7 @@ public class Airport implements Observer {
     public Airport(String name, Subject airports){
         this.name = name;
         this.airports = airports;
+        this.airports.registerObserver(this);
         this.allFlights = new AllFlights(this.name,airports);
         this.setFlights();
     }

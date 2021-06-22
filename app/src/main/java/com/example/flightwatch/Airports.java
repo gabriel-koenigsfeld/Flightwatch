@@ -1,13 +1,32 @@
 package com.example.flightwatch;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Airports implements Subject {
+public class Airports implements Subject, Parcelable {
     private ArrayList<Observer> observer;
 
     public Airports(){
         observer = new ArrayList<Observer>();
     }
+
+    protected Airports(Parcel in) {
+    }
+
+    public static final Creator<Airports> CREATOR = new Creator<Airports>() {
+        @Override
+        public Airports createFromParcel(Parcel in) {
+            return new Airports(in);
+        }
+
+        @Override
+        public Airports[] newArray(int size) {
+            return new Airports[size];
+        }
+    };
+
     @Override
     public void registerObserver(Observer b) {
         observer.add(b);
@@ -27,5 +46,14 @@ public class Airports implements Subject {
             Observer b = (Observer) observer.get(i);
             b.refresh(landungsort,abflugort);
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
     }
 }

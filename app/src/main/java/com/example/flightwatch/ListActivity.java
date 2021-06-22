@@ -64,9 +64,10 @@ public class ListActivity extends AppCompatActivity implements Observer {
                 cityNameView.setText("Stadt");
         }
 
-        airports = new Airports();
+        airports = (Airports) getIntent().getParcelableExtra("airports");
         airport = new Airport(extras.getString("selectedCity"),airports);
-        airports.registerObserver(this);
+
+        //airports.registerObserver(this);
 
         setAdapter();
         weatherConditionView.setText(weather.getCondition());
@@ -85,5 +86,11 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
     public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        airports.removeObserver(this);
+        super.onDestroy();
     }
 }
