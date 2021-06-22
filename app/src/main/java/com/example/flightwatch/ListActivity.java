@@ -41,7 +41,8 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
         Bundle extras = getIntent().getExtras();
 
-        switch(extras.getString("selectedCity")){
+        //Stadtnamenanzeige
+        switch (extras.getString("selectedCity")) {
             case "KLN":
                 cityNameView.setText("Köln");
                 break;
@@ -64,18 +65,22 @@ public class ListActivity extends AppCompatActivity implements Observer {
                 cityNameView.setText("Stadt");
         }
 
+
         airports = new Airports();
-        airport = new Airport(extras.getString("selectedCity"),airports);
+        airport = new Airport(extras.getString("selectedCity"), airports);
         airports.registerObserver(this);
 
-        setAdapter();
+        //Wetterstatus und Temperatur
         weatherConditionView.setText(weather.getCondition());
-        weatherTemperatureView.setText(String.valueOf(weather.getTemperature())+"°C");
+        weatherTemperatureView.setText(String.valueOf(weather.getTemperature()) + "°C");
 
+        //Einmaliges setzen des Adapters
+        setAdapter();
     }
 
 
-    private void setAdapter(){
+    //Der Adapter nimmt die Flüge aus airport
+    private void setAdapter() {
         adapter = new RecyclerAdapter(airport.getFlights());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -83,6 +88,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
     }
 
+    //Methode zur Aktualisierung des Adapters
     public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
     }

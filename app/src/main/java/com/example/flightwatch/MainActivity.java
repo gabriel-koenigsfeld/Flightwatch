@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//DROPDOWN MENÜ
+
+        //DROPDOWN MENÜ
         citySpinner = findViewById(R.id.spinner);
 
         ArrayList<String> citiesList = new ArrayList<>();
@@ -55,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//WEITER BUTTON
+        //WEITER BUTTON
         continueButton = findViewById(R.id.continueButton);
         continueButton.setOnClickListener(new View.OnClickListener(){
 
+            //Beim Klick die ListActivity öffnen
             @Override
             public void onClick(View v) {
                 if(selectedCity != null){
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Activity-Übergang
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
         intent.putExtra("selectedCity",selectedCity);

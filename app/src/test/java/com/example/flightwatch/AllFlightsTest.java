@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 public class AllFlightsTest extends TestCase {
 
-    Subjekt subjekt;
+    Subject subject;
 
     AllFlights allFlights = new AllFlights("Hamburg", null);
 
