@@ -10,9 +10,6 @@ public class Flight {
     private String status;
     private String[] everyStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
 
-    //private enum Status
-    //{SCHEDULED, DELAYED, DEPARTED, CANCELLED, ARRIVED};
-
     public Flight(Plane plane, Schedule schedule, int distance, String status){
         this.plane = plane;
         this.schedule = schedule;
