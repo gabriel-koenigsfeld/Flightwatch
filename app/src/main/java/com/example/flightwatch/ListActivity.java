@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity implements Beobachter{
+public class ListActivity extends AppCompatActivity implements Observer {
 
     ArrayList<Flight> flights;
     RecyclerView recyclerView;
@@ -20,6 +18,9 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
     TextView cityNameView;
     TextView weatherConditionView;
     TextView weatherTemperatureView;
+
+    Weather weather;
+
     Airport airport;
     Airports airports;
 
@@ -32,7 +33,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
         recyclerView = findViewById(R.id.recyclerView);
         flights = new ArrayList<Flight>();
-
+        weather = new Weather();
 
         cityNameView = findViewById(R.id.cityNameView);
         weatherConditionView = findViewById(R.id.weatherConditionView);
@@ -45,10 +46,34 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
         airport = new Airport(extras.getString("selectedCity"),airports);
 
         airports.registriereBeobachter(this);
+        switch(extras.getString("selectedCity")){
+            case "KLN":
+                cityNameView.setText("Köln");
+                break;
+            case "HAM":
+                cityNameView.setText("Hamburg");
+                break;
+            case "BRE":
+                cityNameView.setText("Bremen");
+                break;
+            case "HAJ":
+                cityNameView.setText("Hannover");
+                break;
+            case "LEJ":
+                cityNameView.setText("Leipzig");
+                break;
+            case "MUC":
+                cityNameView.setText("München");
+                break;
+            default:
+                cityNameView.setText("Stadt");
+        }
+
+        airports.registerObserver(this);
 
         setAdapter();
-        weatherConditionView.setText("Sonnig");
-        weatherTemperatureView.setText("25°C");
+        weatherConditionView.setText(weather.getCondition());
+        weatherTemperatureView.setText(String.valueOf(weather.getTemperature())+"°C");
 
     }
 
@@ -61,8 +86,7 @@ public class ListActivity extends AppCompatActivity implements Beobachter{
 
     }
 
-    public void aktualisieren(String abflugsort, String landungsort) {
-        Log.e("bug","new Data");
+    public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
     }
 

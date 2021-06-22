@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Flightwatch</string>
+    <string name="condition">CONDITION</string>
+    <string name="temp">TEMP</string>
+    <string name="city">CITY</string>
+    <string name="headerImageView">HeaderBackground</string>
 </resources>

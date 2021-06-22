@@ -1,8 +1,5 @@
 package com.example.flightwatch;
 
-import android.os.Debug;
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class AllFlights {
@@ -11,7 +8,7 @@ public class AllFlights {
     private String airport;
     private FlightGenerator flightGenerator;
 
-    public AllFlights(String airport,Subjekt airports){
+    public AllFlights(String airport, Subject airports){
         this.airport = airport;
         pendingFlights = new ArrayList<Flight>();
         pastFlights = new ArrayList<Flight>();

@@ -3,16 +3,20 @@ package com.example.flightwatch;
 import junit.framework.TestCase;
 
 public class AirportTest extends TestCase {
-
-    Subjekt subject;
+    
+    Subject subject;
     Weather weather;
 
-    Airport airport = new Airport("Hamburg", "Hamburg", 1000, 10, 10, subject, null);
+    Airport airport = new Airport("Hamburg", "Hamburg", 1000, 10, 10,new Airports(), new Weather());
 
 
     public void testGetCity() {
-        String city = "Hamburg";
-        assertEquals(city, airport.getCity());
+        assertEquals("Hamburg", airport.getCity());
     }
+
+    public void testGetName(){
+        assertEquals("Hamburg", airport.getName());
+    }
+
 
 }
