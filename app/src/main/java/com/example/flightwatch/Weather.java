@@ -33,6 +33,7 @@ public class Weather {
         this.temperature = temperature;
     }
 
+    //Method to generate a random Weather object
     public void generateWeather(){
         int randCondition = new Random().nextInt(conditions.length);
         this.setCondition(conditions[randCondition]);

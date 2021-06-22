@@ -12,9 +12,6 @@ public class Schedule {
     private String[] departures = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
     private String[] destinations = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
 
-    //private String[] departures = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
-    //private String[] destinations = new String[]{"Köln", "Hamburg", "Bremen", "Hannover", "Leipzig", "München"};
-
     public Schedule(String departure, String departureTime, String destination, String destinationTime){
         this.departure = departure;
         this.departureTime = departureTime;
@@ -62,6 +59,9 @@ public class Schedule {
     public void setDestinationTime(String destinationTime) {
         this.destinationTime = destinationTime;
     }
+
+
+    //Method to generate a random schedule
 
     public void generateSchedule(){
         int departureRandHour = new Random().nextInt(23);
