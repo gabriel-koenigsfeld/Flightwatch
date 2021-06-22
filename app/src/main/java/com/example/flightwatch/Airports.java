@@ -3,11 +3,15 @@ package com.example.flightwatch;
 import java.util.ArrayList;
 
 public class Airports implements Subject {
+
+    //ArrayList with Observer Objects
     private ArrayList<Observer> observer;
 
     public Airports(){
         observer = new ArrayList<Observer>();
     }
+
+    //Overrides of Subject Function
     @Override
     public void registerObserver(Observer b) {
         observer.add(b);

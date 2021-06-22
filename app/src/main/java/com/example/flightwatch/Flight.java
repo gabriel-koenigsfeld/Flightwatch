@@ -4,12 +4,22 @@ import java.util.Random;
 
 public class Flight {
 
+    //Plane Object
     private Plane plane;
+
+    //Schedule Object
     private Schedule schedule;
+
+    //Distance
     private int distance;
+
+    //Status
     private String status;
+
+    //Different Types of States
     private String[] everyStatus = new String[]{"SCHEDULED", "DELAYED", "DEPARTED", "CANCELLED", "ARRIVED"};
 
+    //Flight Constructor
     public Flight(Plane plane, Schedule schedule, int distance, String status){
         this.plane = plane;
         this.schedule = schedule;
@@ -17,10 +27,12 @@ public class Flight {
         this.status = status;
     }
 
+    //Random Flight Constructor
     public Flight() {
             this.generateFlight();
     }
 
+    //Getter and Setter
     public Plane getPlane() {
         return plane;
     }
@@ -53,9 +65,10 @@ public class Flight {
         this.status = status;
     }
 
+    //Method to generate random Flight
     public void generateFlight(){
-        this.setDistance(new Random().nextInt(10000));
-        int randStatus = new Random().nextInt(everyStatus.length);
+        this.setDistance(new Random().nextInt(10000));              //Random Int set as Distance
+        int randStatus = new Random().nextInt(everyStatus.length);         //Random Value from Status Array set as Status
         this.setFlightStatus(everyStatus[randStatus]);
     }
 
