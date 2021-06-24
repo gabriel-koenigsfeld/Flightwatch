@@ -9,7 +9,7 @@ public class AirportTest extends TestCase {
 
     Airport airport = new Airport("Hamburg", "Hamburg", 1000, 10, 10,new Airports(), new Weather());
 
-
+    //Constructor Tests
     public void testGetCity() {
         assertEquals("Hamburg", airport.getCity());
     }

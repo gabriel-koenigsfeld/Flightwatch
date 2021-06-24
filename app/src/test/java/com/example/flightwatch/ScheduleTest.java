@@ -6,6 +6,7 @@ public class ScheduleTest extends TestCase {
 
     Schedule schedule = new Schedule("Hamburg", "8:00", "Köln", "10:00");
 
+    //Constructor Tests
     public void testGetDeparture(){
         assertEquals("Hamburg", schedule.getDeparture());
     }
@@ -20,6 +21,14 @@ public class ScheduleTest extends TestCase {
 
     public void testGetDestinationTime(){
         assertEquals("10:00", schedule.getDestinationTime());
+    }
+
+    //Generator Test
+    public void testScheduleGenerator(){
+        Schedule schedule = new Schedule();
+
+        assertTrue(schedule.getDepartureTime().contains(":"));
+        assertTrue(schedule.getDestination() != "");
     }
 
 }
