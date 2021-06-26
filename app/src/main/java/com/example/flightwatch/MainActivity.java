@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private Button continueButton;
     private Spinner citySpinner;
     private String selectedCity;
-    private Airports airports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

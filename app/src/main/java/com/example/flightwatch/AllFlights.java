@@ -44,9 +44,6 @@ public class AllFlights {
         this.airport = "";
     }
 
-    public Subject getAirports(){
-        return this.flightGenerator.getConcreteSubject();
-    }
 
     //Every 5 seconds new Flights will be added
     public void restartGenerator(){

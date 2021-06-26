@@ -5,7 +5,7 @@ package com.example.flightwatch;
 import java.util.Random;
 
 public class FlightGenerator {
-    private Subject airports;
+    public static Subject airports;
     private static FlightGenerator flightGenerator;
     private String[] everyStatus = new String[]{"Scheduled", "Delayed", "Departed", "Cancelled", "Arrived"};
 
@@ -27,10 +27,6 @@ public class FlightGenerator {
         Flight flight = new Flight(new Plane(), new Schedule(airport), new Random().nextInt(517)+95, everyStatus[new Random().nextInt(everyStatus.length)]);
         airports.notifyObserver("all", flight.getSchedule().getDestination());
         return flight;
-    }
-
-    public Subject getConcreteSubject(){
-        return this.airports;
     }
 
     //Generating three random flight objects so the list is not empty when started

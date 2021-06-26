@@ -66,9 +66,14 @@ public class ListActivity extends AppCompatActivity implements Observer {
                 cityNameView.setText("Stadt");
         }
 
-        airports = new Airports();
+        if(FlightGenerator.airports != null){
+            airports = FlightGenerator.airports;
+        }
+        else{
+            airports = new Airports();
+        }
+
         airport = new Airport(extras.getString("selectedCity"), airports);
-        airports = airport.getAirportsFromFlightGenerator();
         airports.registerObserver(this);
 
         //Weather status and temperature
@@ -99,6 +104,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
         airports.removeObserver(this);
         airports.removeObserver(this.airport);
         airport.resetAllFlights();
+        airport = null;
         super.onDestroy();
     }
 }
