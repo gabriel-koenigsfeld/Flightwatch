@@ -1,5 +1,7 @@
 package com.example.flightwatch;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class AllFlights {
@@ -25,6 +27,7 @@ public class AllFlights {
     }
 
     public void getGeneratedFlight(){
+        if(this.airport.length() < 1) return;
         pendingFlights.add(flightGenerator.generateFlight(airport));
         this.restartGenerator();
     }
@@ -35,6 +38,14 @@ public class AllFlights {
             pendingFlights.add(flight);
         }
         this.getGeneratedFlight();
+    }
+
+    public void removeAirport(){
+        this.airport = "";
+    }
+
+    public Subject getAirports(){
+        return this.flightGenerator.getConcreteSubject();
     }
 
     //Every 5 seconds new Flights will be added

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
     Weather weather;
 
     Airport airport;
-    Airports airports;
+    Subject airports;
 
     RecyclerAdapter adapter;
 
@@ -65,9 +66,9 @@ public class ListActivity extends AppCompatActivity implements Observer {
                 cityNameView.setText("Stadt");
         }
 
-
         airports = new Airports();
         airport = new Airport(extras.getString("selectedCity"), airports);
+        airports = airport.getAirportsFromFlightGenerator();
         airports.registerObserver(this);
 
         //Weather status and temperature
@@ -96,7 +97,8 @@ public class ListActivity extends AppCompatActivity implements Observer {
     @Override
     protected void onDestroy() {
         airports.removeObserver(this);
-        airport = null;
+        airports.removeObserver(this.airport);
+        airport.resetAllFlights();
         super.onDestroy();
     }
 }

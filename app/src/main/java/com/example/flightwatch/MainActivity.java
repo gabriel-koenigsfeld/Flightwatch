@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         //City dropdown menu
         citySpinner = findViewById(R.id.spinner);
-        airports = new Airports();
+
         ArrayList<String> citiesList = new ArrayList<>();
         citiesList.add("Wählen Sie Ihren Flughafen aus");
         citiesList.add("KLN");
@@ -77,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListActivity.class);
         //transfer selectedCity to ListActivity
         intent.putExtra("selectedCity",selectedCity);
-        //transfer airports (concrete subject) to ListActivity
-        intent.putExtra("airports",airports);
         selectedCity = null;
         startActivity(intent);
     }

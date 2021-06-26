@@ -29,6 +29,10 @@ public class FlightGenerator {
         return flight;
     }
 
+    public Subject getConcreteSubject(){
+        return this.airports;
+    }
+
     //Generating three random flight objects so the list is not empty when started
     public Flight[] getDummyFlights(String airport) {
         Flight[] flights = {

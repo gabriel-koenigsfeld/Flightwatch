@@ -36,11 +36,19 @@ public class Airport implements Observer {
         this.setFlights();
     }
 
+    public Subject getAirportsFromFlightGenerator(){
+        return this.allFlights.getAirports();
+    }
+
     @Override
     public void refresh(String departure, String destination) {
         if (departure.equals("all") || departure.equals(this.name) || destination.equals(this.name)) {
             this.setFlights();
         }
+    }
+
+    public void resetAllFlights(){
+        this.allFlights.removeAirport();
     }
 
     public ArrayList<Flight> getFlights(){
