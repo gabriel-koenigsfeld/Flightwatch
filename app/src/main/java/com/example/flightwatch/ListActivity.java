@@ -53,7 +53,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
         Bundle extras = getIntent().getExtras();
 
-        //Set cityView to spelled out city names
+        /* Set cityView to spelled out city names */
         switch (extras.getString("selectedCity")) {
             case "KLN":
                 cityNameView.setText("Köln");
@@ -87,16 +87,16 @@ public class ListActivity extends AppCompatActivity implements Observer {
         airport = new Airport(extras.getString("selectedCity"), airports);
         airports.registerObserver(this);
 
-        //Weather status and temperature
+        /* Weather status and temperature */
         weatherConditionView.setText(weather.getCondition());
         weatherTemperatureView.setText(String.valueOf(weather.getTemperature()) + "°C");
 
-        //Initialize adapter
+        /* Initialize adapter */
         setAdapter();
     }
 
 
-    //Adapter uses the flights array list from airport
+    /* Adapter uses the flights array list from airport */
     private void setAdapter() {
         adapter = new RecyclerAdapter(airport.getFlights());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -105,7 +105,7 @@ public class ListActivity extends AppCompatActivity implements Observer {
 
     }
 
-    //Method to notify the adapter when new flights have been added
+    /* Method to notify the adapter when new flights have been added */
     public void refresh(String departure, String destination) {
         adapter.notifyDataSetChanged();
     }

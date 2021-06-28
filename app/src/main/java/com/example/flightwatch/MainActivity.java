@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //City dropdown menu
+        /* City dropdown menu */
         citySpinner = findViewById(R.id.spinner);
 
         ArrayList<String> citiesList = new ArrayList<>();
@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Continue button
+        /* Continue button */
         continueButton = findViewById(R.id.continueButton);
         continueButton.setOnClickListener(new View.OnClickListener(){
 
-            //Open ListActivity when tapped
+            /* Open ListActivity when tapped */
             @Override
             public void onClick(View v) {
                 if(selectedCity != null){
@@ -83,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Button transition to ListActivity
+    /* Button transition to ListActivity */
     public void openListActivity(){
         Intent intent = new Intent(this, ListActivity.class);
-        //transfer selectedCity to ListActivity
+        /* transfer selectedCity to ListActivity */
         intent.putExtra("selectedCity",selectedCity);
         selectedCity = null;
         startActivity(intent);
