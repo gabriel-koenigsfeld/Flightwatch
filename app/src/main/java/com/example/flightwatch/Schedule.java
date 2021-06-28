@@ -1,35 +1,46 @@
+/*
+ * Schedule
+ *
+ * Version 1.0
+ *
+ * Königsfeld, Gabriel
+ * Özugurlu, Sina
+ * Karampelas, Panagiotis
+ * Konadu, Joshua Osei-Bonsu
+ */
+
 package com.example.flightwatch;
 
 import java.util.Random;
 
 public class Schedule {
 
-    //Place of Departure
+    /* Place of Departure */
     private String departure;
 
-    //Time of Departure
+    /* Time of Departure */
     private String departureTime;
 
-    //Place at Destination
+    /* Place at Destination */
     private String destination;
 
-    //Time at Destination
+    /* Time at Destination */
     private String destinationTime;
 
-    //Places of Departure
+    /* Places of Departure */
     private String[] departures = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
 
-    //Places of Destination
+    /* Places of Destination */
     private String[] destinations = new String[]{"KLN", "HAM", "BRE", "HAJ", "LEJ", "MUC"};
 
-    //Schedule Constructor
+    /* Schedule Constructor */
     public Schedule(String departure, String departureTime, String destination, String destinationTime){
         this.departure = departure;
         this.departureTime = departureTime;
         this.destination = destination;
         this.destinationTime = destinationTime;
     }
-    //Schedule Constructors to generate random Schedule
+    /* Schedule Randomizer Constructor */
     public Schedule(String departure){
 
         this.generateRoute(departure);
@@ -40,7 +51,7 @@ public class Schedule {
         this.generateSchedule();
     }
 
-    //Getter and Setter
+    /* Getter and Setter */
     public String getDeparture() {
         return departure;
     }
@@ -74,8 +85,7 @@ public class Schedule {
     }
 
 
-    //Method to generate a random schedule
-
+    /* Method to generate Random Schedule */
     public void generateSchedule(){
         int departureRandHour = new Random().nextInt(23);                                       //Generate Random Int in Range 24
         int departureRandMinute = new Random().nextInt(59);                                     //Generate Random Int in Range 60
@@ -114,7 +124,7 @@ public class Schedule {
 
     }
 
-    //Function to generate a Route
+    /* Function to generate random Route */
     public void generateRoute(String departure){
         int randDes = new Random().nextInt(destinations.length);                                        //Pick a random Int in the range of Destinations Array
 

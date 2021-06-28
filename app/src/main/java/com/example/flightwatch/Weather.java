@@ -1,30 +1,41 @@
+/*
+ * Weather
+ *
+ * Version 1.0
+ *
+ * Königsfeld, Gabriel
+ * Özugurlu, Sina
+ * Karampelas, Panagiotis
+ * Konadu, Joshua Osei-Bonsu
+ */
+
 package com.example.flightwatch;
 
 import java.util.Random;
 
 public class Weather {
 
-    //Weather Condition
+    /* Weather Condition */
     private String condition;
 
-    //Types of Condition
+    /* Types of Condition */
     private String[] conditions = new String[]{"Sonnig", "Regen", "Stürmisch"};
 
-    //Temperature as Integer
+    /* Temperature as Integer */
     private int temperature;
 
-    //Weather Constructor
+    /* Weather Constructor */
     public Weather(String condition, int temperature){
         this.condition = condition;
         this.temperature = temperature;
     }
 
-    //Random Weather Constructor
+    /* Random Weather Constructor */
     public Weather(){
         this.generateWeather();
     }
 
-    //Getter and Setter
+    /* Getter and Setter */
     public String getCondition() {
         return condition;
     }
@@ -41,7 +52,7 @@ public class Weather {
         this.temperature = temperature;
     }
 
-    //Method to generate a random Weather object
+    /* Method to generate Random Weather Object */
     public void generateWeather(){
         int randCondition = new Random().nextInt(conditions.length);                //Pick Condition from Conditions Array
         this.setCondition(conditions[randCondition]);
