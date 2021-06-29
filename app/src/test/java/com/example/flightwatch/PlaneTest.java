@@ -17,7 +17,7 @@ public class PlaneTest extends TestCase {
 
     Plane plane = new Plane(50, "groß");
 
-    /*Constructor Tests*/
+    /* Constructor Tests */
     public void testGetPassengerCapacity(){
         assertEquals(50, plane.getPassengerCapacity());
     }

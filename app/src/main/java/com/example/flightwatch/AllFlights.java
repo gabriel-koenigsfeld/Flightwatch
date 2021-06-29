@@ -42,7 +42,7 @@ public class AllFlights {
         pendingFlights.add(flightGenerator.generateFlight(airport));
         this.restartGenerator();
     }
-    //Get dummy Flights and start Generating Flights
+    /* Get dummy Flights and start Generating Flights */
     public void getDummyData(){
         Flight[] flights = flightGenerator.getDummyFlights(this.airport);
         for (Flight flight: flights) {
@@ -56,7 +56,7 @@ public class AllFlights {
     }
 
 
-    //Every 5 seconds new Flights will be added
+    /* Every 5 seconds new Flights will be added */
     public void restartGenerator(){
         new android.os.Handler().postDelayed(
                 new Runnable() {
