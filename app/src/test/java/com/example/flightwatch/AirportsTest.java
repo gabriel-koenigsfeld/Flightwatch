@@ -17,6 +17,6 @@ public class AirportsTest extends TestCase {
 
     Airports airports = new Airports();
 
-    //Constructor Tests
+    /* Constructor Tests */
 
 }

@@ -19,7 +19,7 @@ public class AllFlightsTest extends TestCase {
 
     AllFlights allFlights = new AllFlights("Hamburg", null);
 
-    //Constructor Tests
+    /* Constructor Tests */
 
     public void testGetGeneratedFlight(){
 
