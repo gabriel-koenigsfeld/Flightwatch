@@ -13,6 +13,8 @@ package com.example.flightwatch;
 
 import junit.framework.TestCase;
 
+import static org.junit.Assert.assertNotEquals;
+
 public class PlaneTest extends TestCase {
 
     Plane plane = new Plane(50, "groß");
@@ -30,7 +32,7 @@ public class PlaneTest extends TestCase {
     public void testGeneratePlane(){
         Plane plane2 = new Plane();
 
-        assertEquals(plane2.getType(), plane.getType());
+        assertNotEquals(plane2.getType(), plane.getType());
     }
 
 }
